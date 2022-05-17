@@ -31,7 +31,7 @@ public class AccountController {
 		account.setAccountName("Account #" + user.getAccounts().size());
 		account = accountService.save(account);
 		
-		return "redirect:/users/"+userId+"/accounts/"+account.getAccountId();
+		return "redirect:/users/" + userId + "/accounts/"+account.getAccountId();
 	}
 	
 	@PostMapping("/users/{userId}/accounts/{accountId}")
@@ -39,6 +39,7 @@ public class AccountController {
 		account = accountService.save(account);
 		return "redirect:/users/"+userId+"/accounts/"+account.getAccountId();
 	}
+	
 	
 	@GetMapping("/users/{userId}/accounts/{accountId}")
 	public String getAccount(ModelMap model, @PathVariable Long userId, @PathVariable Long accountId) {

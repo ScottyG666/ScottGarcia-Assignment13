@@ -25,12 +25,12 @@ public class User {
 	private String password;
 	private String name;
 	private LocalDate createdDate;
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST , CascadeType.REMOVE})
 	@JoinTable(name = "user_account",
 	           joinColumns = @JoinColumn(name = "user_id"), 
 	           inverseJoinColumns = @JoinColumn(name = "account_id"))
 	private List<Account> accounts = new ArrayList<>();
-	@OneToOne(mappedBy = "user" , cascade = CascadeType.PERSIST)
+	@OneToOne(mappedBy = "user" , cascade = {CascadeType.PERSIST , CascadeType.REMOVE})
 	private Address address;
 	
 	public Long getUserId() {

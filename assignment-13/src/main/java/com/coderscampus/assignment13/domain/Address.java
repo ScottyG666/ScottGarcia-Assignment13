@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class Address {
 	@Id
 	private Long userId;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@MapsId
 	@JoinColumn(name="user_id")
 	private User user;

@@ -72,9 +72,10 @@ public class UserController {
 		user.setAccounts(establishedUser.getAccounts());
 		Address address = addressService.save(user.getAddress());
 		user.setAddress(address);
+		
 		userService.saveUser(user);
 		
-		return "redirect:/users/"+user.getUserId();
+		return "redirect:/users/" + user.getUserId();
 	}
 	
 	@PostMapping("/users/{userId}/delete")
@@ -82,4 +83,17 @@ public class UserController {
 		userService.delete(userId);
 		return "redirect:/users";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
